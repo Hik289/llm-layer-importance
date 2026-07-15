@@ -4,11 +4,9 @@
 
 **Xinyuan Song, Keyu Wang, PengXiang Li, Lu Yin, Shiwei Liu**
 
-[![ICASSP 2026](https://img.shields.io/badge/ICASSP%202026-Accepted-success.svg)](https://2026.ieeeicassp.org/)
 [![arXiv](https://img.shields.io/badge/arXiv-2510.02091-b31b1b.svg)](https://arxiv.org/abs/2510.02091)
-[![Paper](https://img.shields.io/badge/Paper-PDF-blue.svg)](https://arxiv.org/pdf/2510.02091)
-[![Code](https://img.shields.io/badge/GitHub-Code-black.svg)](https://github.com/Hik289/llm-layer-importance)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3-3776AB.svg)](requirements.txt)
 
 **Official implementation for "Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning."**
 
