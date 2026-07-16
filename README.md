@@ -16,6 +16,12 @@
 
 ---
 
+## At a Glance
+
+- **Research question.** Which LLM layers support retrieval, stored knowledge, reasoning, and pruning robustness?
+- **Core idea.** The code probes layer importance through removal, pruning, angular-distance analysis, and task-specific performance drops.
+- **What is included.** Layer ablation scripts, pruning experiments, angular-distance utilities, evaluation commands, and citation metadata.
+
 ## Overview
 
 This repository contains the implementation and experimental code for our
@@ -26,7 +32,7 @@ Knowledge, and Reasoning](https://arxiv.org/abs/2510.02091).
 
 Recent studies suggest that the deeper layers of Large Language Models (LLMs) contribute little to representation learning and can often be removed without significant performance loss. However, such claims are typically drawn from narrow evaluations and may overlook important aspects of model behavior. In this work, we present a systematic study of depth utilization across diverse dimensions, including evaluation protocols, task categories, and model architectures. Our analysis confirms that very deep layers are generally less effective than earlier ones, but their contributions vary substantially with the evaluation setting. Under likelihood-based metrics without generation, pruning most layers preserves performance, with only the initial few being critical. By contrast, generation-based evaluation uncovers indispensable roles for middle and deeper layers in enabling reasoning and maintaining long-range coherence. We further find that knowledge and retrieval are concentrated in shallow components, whereas reasoning accuracy relies heavily on deeper layers -- yet can be reshaped through distillation. These results highlight that depth usage in LLMs is highly heterogeneous and context-dependent, underscoring the need for task-, metric-, and model-aware perspectives in both interpreting and compressing large models.
 
-## Repository Contents
+## Repository Structure
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
@@ -109,7 +115,7 @@ Our research reveals that:
 
 3. **Context-Dependent Depth Usage**: The importance of layers varies significantly based on the specific evaluation setting and task requirements.
 
-## Repository Structure
+## Directory Tree
 
 ```text
 llm-layer-importance/
