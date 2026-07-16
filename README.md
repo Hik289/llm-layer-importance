@@ -1,18 +1,22 @@
-<div align="center">
+<h1 align="center">Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning</h1>
 
-# Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning
+<p align="center">
+  <strong>Xinyuan Song, Keyu Wang, PengXiang Li, Lu Yin, Shiwei Liu</strong>
+</p>
 
-**Xinyuan Song, Keyu Wang, PengXiang Li, Lu Yin, Shiwei Liu**
+<p align="center">
+  <a href="https://arxiv.org/abs/2510.02091"><img src="https://img.shields.io/badge/arXiv-2510.02091-b31b1b.svg" alt="arXiv"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="MIT license"></a>
+  <a href="requirements.txt"><img src="https://img.shields.io/badge/Python-3.9-3776AB.svg" alt="Python 3.9"></a>
+</p>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2510.02091-b31b1b.svg)](https://arxiv.org/abs/2510.02091)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.9-3776AB.svg)](requirements.txt)
+<p align="center">
+  <strong>Official implementation for "Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning."</strong>
+</p>
 
-**Official implementation for "Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning."**
-
-**Accepted by ICASSP 2026.**
-
-</div>
+<p align="center">
+  <strong>Accepted by ICASSP 2026.</strong>
+</p>
 
 ---
 
