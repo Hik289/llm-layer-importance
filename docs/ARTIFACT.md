@@ -1,8 +1,8 @@
 # Artifact Guide
 
-This guide maps the public `llm-layer-importance` repository to a reviewer-friendly artifact workflow for `Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning`. It is meant to make the release easier to inspect in the style of ICML, ICLR, NeurIPS, and similar artifact-review processes.
+Operational notes for reproducing `Demystifying the Roles of LLM Layers in Retrieval, Knowledge, and Reasoning` from the public `llm-layer-importance` repository.
 
-## What To Inspect First
+## Review Path
 
 - `peft_pretraining/`: Project-specific implementation subtree.
 - Root-level entry points: `layer_remove.py`, `torchrun_main.py`.
@@ -12,31 +12,31 @@ This guide maps the public `llm-layer-importance` repository to a reviewer-frien
 - `requirements.txt`: Primary Python dependency list.
 - `exp_requirements.txt`: Experiment-specific Python dependency list.
 
-## Minimal Verification
+## Smoke Checks
 
-Run these checks in a fresh environment before launching expensive jobs:
+Run these checks before long jobs:
 
 ```bash
 python -m compileall -q .
 ```
 
-If a smoke command is not tracked, use the README Quick Start with the smallest available seed, sample, or task count.
+If no smoke command is tracked, use the README Quick Start with the smallest seed, sample, or task count.
 
-## Reproduction And Analysis Entry Points
+## Reproduction Entry Points
 
-These are the main tracked files to inspect for paper-scale or benchmark-scale reproduction. Some require arguments, credentials, downloaded benchmarks, or local data paths described in the README.
+Main tracked entry points for paper-scale or benchmark-scale runs:
 
 - `python layer_remove.py`
 - `python torchrun_main.py`
 
-## Data, Credentials, And Generated Outputs
+## Data And Outputs
 
 - Keep local dataset paths, downloaded corpora, checkpoints, and generated run artifacts outside git unless the README identifies them as small checked-in fixtures.
 - Record dataset version, preprocessing command, seed, and hardware/runtime notes for every reproduced table or figure.
 - Treat generated JSONL files, logs, caches, model checkpoints, and benchmark downloads as local artifacts unless explicitly tracked as fixtures.
 - For stochastic experiments, record seeds, task counts, dataset splits, and the exact git commit used for the run.
 
-## Reviewer Reporting Checklist
+## Reporting Checklist
 
 - `git rev-parse HEAD`
 - Python version and dependency-install command

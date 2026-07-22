@@ -33,10 +33,10 @@ class ShortHFModel():
             self.tokenizer = AutoTokenizer.from_pretrained("/lpai/volumes/ad-vla-vol-ga/lipengxiang/code/ShortGPT/T5-base", model_max_length=256)
             self.tokenizer.pad_token_id = 0
             self.model = LlamaForCausalLM.from_pretrained(model_name, torch_dtype=torch.float16)
-            # model_config = AutoConfig.from_pretrained("/defaultShare/SA-1B/lpx_workspace/LLM_Research/GaLore/configs/llama_350m.json")
+            # model_config = AutoConfig.from_pretrained("/path/to/configs/llama_350m.json")
             # self.model = LlamaForCausalLM(model_config)
         
-        # model_config = AutoConfig.from_pretrained("/defaultShare/SA-1B/lpx_workspace/LLM_Research/GaLore/configs/llama_250m.json")
+        # model_config = AutoConfig.from_pretrained("/path/to/configs/llama_250m.json")
         # self.model = LlamaForCausalLM(model_config)
         
         # self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
