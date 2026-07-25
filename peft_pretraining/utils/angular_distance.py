@@ -1,17 +1,21 @@
 import argparse
+
 import matplotlib.pyplot as plt
 from datasets import load_dataset
-from torch.utils.data import DataLoader
 from tqdm import tqdm
 
-from short_hf import ShortHFModel
+try:
+    from .short_hf import ShortHFModel
+except ImportError:
+    from short_hf import ShortHFModel
 
 def compute_angular_distance(model, data, max_seq_len=1024, stride=256, n_samples=50):
     angular_distances = []
     for i, batch in enumerate(tqdm(data)):
         if i >= n_samples:
             break
-        prompts = batch['text']
+        text = batch["text"]
+        prompts = [text] if isinstance(text, str) else text
 
         model.eval_importance(
             prompts=prompts,
@@ -26,18 +30,20 @@ def compute_angular_distance(model, data, max_seq_len=1024, stride=256, n_sample
 def plot_angular_distances(distances, output_path):
     plt.figure(figsize=(10, 6))
     plt.plot(distances, label='Angular Distances')
-    plt.xlabel('Sample Index')
-    plt.ylabel('Angular Distance')
-    plt.title('Angular Distances Across Samples')
+    plt.xlabel("Layer Index")
+    plt.ylabel("Accumulated Angular Distance")
+    plt.title("Angular Distance by Layer")
     plt.legend()
+    plt.tight_layout()
     plt.savefig(output_path)
-    plt.show()
+    plt.close()
 
 def main(args):
     model = ShortHFModel(
         model_name=args.model_path,
         layers_path="model.layers",
-        n_prune_layers=1, # this is a dummy value, don't worry about it
+        # Angular importance compares adjacent layers.
+        n_prune_layers=1,
     )
 
     data = load_dataset("allenai/c4", "en", split="train", streaming=True)

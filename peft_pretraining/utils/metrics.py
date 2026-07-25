@@ -1,4 +1,5 @@
 import torch
+import torch.nn.functional as F
 
 
 def block_influence(
@@ -6,21 +7,17 @@ def block_influence(
     output_hidden_state: torch.Tensor,
     angular=False,
 ):
-    """
-    input_hidden_state: B, S, D
-    output_hidden_state: B, S, D
-    """
-    _, _, d = input_hidden_state.shape
-    input_hidden_state = input_hidden_state.reshape(-1, d)
-    output_hidden_state = output_hidden_state.reshape(-1, d)
+    """Return token-wise block influence for hidden states shaped ``(B, S, D)``."""
+    if input_hidden_state.shape != output_hidden_state.shape:
+        raise ValueError("input and output hidden states must have the same shape")
 
-    norm_input = input_hidden_state.norm(dim=-1, keepdim=True)
-    norm_output = output_hidden_state.norm(dim=-1, keepdim=True)
-
-    sim = (input_hidden_state @ output_hidden_state.T) / (norm_input * norm_output)
-    sim = sim.diagonal().nan_to_num(nan=0.5)
+    d = input_hidden_state.shape[-1]
+    input_flat = input_hidden_state.reshape(-1, d)
+    output_flat = output_hidden_state.reshape(-1, d)
+    sim = F.cosine_similarity(input_flat, output_flat, dim=-1, eps=1e-8)
+    sim = sim.nan_to_num(nan=0.0).clamp(-1.0, 1.0)
 
     if angular:
-        return (torch.arccos(sim) / torch.pi)
+        return torch.arccos(sim) / torch.pi
 
     return 1 - sim
