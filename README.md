@@ -20,11 +20,15 @@
 
 ---
 
-## Repository Summary
+## At A Glance
 
-- **Scope.** Which LLM layers support retrieval, stored knowledge, reasoning, and pruning robustness?
-- **Method.** The code probes layer importance through removal, pruning, angular-distance analysis, and task-specific performance drops.
-- **Contents.** Layer ablation scripts, pruning experiments, angular-distance utilities, evaluation commands, and citation metadata.
+| Artifact review question | Entry point |
+| --- | --- |
+| Research question | Which LLM layers support retrieval, stored knowledge, reasoning, and pruning robustness? |
+| Core method | The code probes layer importance through removal, pruning, angular-distance analysis, and task-specific performance drops. |
+| Included artifacts | Layer ablation scripts, pruning experiments, angular-distance utilities, evaluation commands, and citation metadata. |
+| Fast validation | `python -m pytest tests -q` |
+| Paper-scale reproduction | Layer removal, pruning, head pruning, angular-distance, and task-evaluation scripts. |
 
 ## Overview
 
@@ -73,7 +77,7 @@ python layer_remove.py \
 
 ### Layer Pruning Experiments
 
-For comprehensive layer pruning experiments, use the following scripts:
+For the full layer-pruning suite, use the following scripts:
 
 ```bash
 # Enhanced layer pruning
