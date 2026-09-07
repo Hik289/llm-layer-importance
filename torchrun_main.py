@@ -322,10 +322,6 @@ def main(args):
     update_time = time.time()
     local_step = 0  # when continue_from is used, local_step != global_step
 
-    # ##############################
-    # TRAINING LOOP
-    # we'll never go through all the data, so no need for epochs
-    # ##############################
 
     for batch_idx, batch in enumerate(dataloader):
 
